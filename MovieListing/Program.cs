@@ -8,10 +8,10 @@ namespace MovieListing
     {
         static void Main(string[] args)
         {
-             string path = Directory.GetCurrentDirectory() + "\\nlog.config";
+            string path = Directory.GetCurrentDirectory() + "\\nlog.config";
 
             // create instance of Logger
-            var logger = NLogBuilder.ConfigureNLog(path).GetCurrentClassLogger();
+            var logger = NLog.Web.NLogBuilder.ConfigureNLog(path).GetCurrentClassLogger();
             logger.Info("Program started");
 
             string file = "movies.csv";
@@ -24,7 +24,7 @@ namespace MovieListing
             {
                 // TODO: create user menu
             }
-
+            
             logger.Info("Program ended");
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using NLog.Web;
 using System.IO;
+using System.Collections.Generic;
 
 namespace MovieListing
 {
@@ -22,6 +23,12 @@ namespace MovieListing
             }
             else
             {
+                // create parallel lists of movie details
+                // lists are used since we do not know number of lines of data
+                List<UInt64> MovieIds = new List<UInt64>();
+                List<string> MovieTitles = new List<string>();
+                List<string> MovieGenres = new List<string>();
+
                 string choice;
                 do
                 {

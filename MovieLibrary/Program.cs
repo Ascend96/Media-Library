@@ -13,7 +13,12 @@ namespace MovieLibrary
         {
             logger.Info("Program started");
 
-            Console.WriteLine("Hello World!");
+                        Movie movie = new Movie
+            {
+                movieId = 1,
+                title = "Jeff's Killer Movie (2019)",
+                genres = new List<string> { "Action", "Romance", "Comedy" }
+            };
 
             logger.Info("Program ended");
         }

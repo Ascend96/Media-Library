@@ -2,6 +2,7 @@
 using NLog.Web;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MovieListing
 {
@@ -93,6 +94,9 @@ namespace MovieListing
                     if (choice == "1")
                     {
                         // Add Movie
+                                                // first, generate movie id - use max value in MovieIds + 1
+                        UInt64 movieId = MovieIds.Max() + 1;
+                        Console.WriteLine($"Movie Id: {movieId}");
                     }
                     else if (choice == "2")
                     {

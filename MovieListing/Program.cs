@@ -43,16 +43,16 @@ namespace MovieListing
                         int idx = line.IndexOf('"');
                         if (idx == -1)
                         {
-                            // // no quote = no comma in movie title
-                            // // movie details are separated with comma(,)
-                            // string[] movieDetails = line.Split(',');
-                            // // 1st array element contains movie id
-                            // MovieIds.Add(UInt64.Parse(movieDetails[0]));
-                            // // 2nd array element contains movie title
-                            // MovieTitles.Add(movieDetails[1]);
-                            // // 3rd array element contains movie genre(s)
-                            // // replace "|" with ", "
-                            // MovieGenres.Add(movieDetails[2].Replace("|", ", "));
+                            // no quote = no comma in movie title
+                            // movie details are separated with comma(,)
+                            string[] movieDetails = line.Split(',');
+                            // 1st array element contains movie id
+                            MovieIds.Add(UInt64.Parse(movieDetails[0]));
+                            // 2nd array element contains movie title
+                            MovieTitles.Add(movieDetails[1]);
+                            // 3rd array element contains movie genre(s)
+                            // replace "|" with ", "
+                            MovieGenres.Add(movieDetails[2].Replace("|", ", "));
                         }
                         else
                         {

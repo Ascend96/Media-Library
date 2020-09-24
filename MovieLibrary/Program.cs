@@ -37,7 +37,26 @@ namespace MovieLibrary
                     movie.title = Console.ReadLine();
                     // verify title is unique
                     if (movieFile.isUniqueTitle(movie.title)){
-                        Console.WriteLine("Movie title is unique\n");
+                                                // input genres
+                        string input;
+                        do
+                        {
+                            // ask user to enter genre
+                            Console.WriteLine("Enter genre (or done to quit)");
+                            // input genre
+                            input = Console.ReadLine();
+                            // if user enters "done"
+                            // or does not enter a genre do not add it to list
+                            if (input != "done" && input.Length > 0)
+                            {
+                                movie.genres.Add(input);
+                            }
+                        } while (input != "done");
+                        // specify if no genres are entered
+                        if (movie.genres.Count == 0)
+                        {
+                            movie.genres.Add("(no genres listed)");
+                        }
                     }
                 } else if (choice == "2")
                 {

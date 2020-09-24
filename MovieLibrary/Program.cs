@@ -27,6 +27,17 @@ namespace MovieLibrary
                 // input selection
                 choice = Console.ReadLine();
                 logger.Info("User choice: {Choice}", choice);
+                if (choice == "1")
+                {
+                    // Add movie
+                } else if (choice == "2")
+                {
+                    // Display All Movies
+                    foreach(Movie m in movieFile.Movies)
+                    {
+                        Console.WriteLine(m.Display());
+                    }
+                }
             } while (choice == "1" || choice == "2");
 
             logger.Info("Program ended");

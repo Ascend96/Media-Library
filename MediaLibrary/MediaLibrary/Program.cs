@@ -6,6 +6,7 @@ namespace MediaLibrary
 {
     class Program
     {
+        // creates static instance of logger
         private static NLog.Logger logger = NLogBuilder.ConfigureNLog(Directory.GetCurrentDirectory() + "\\nlog.config").GetCurrentClassLogger();
         static void Main(string[] args)
         {

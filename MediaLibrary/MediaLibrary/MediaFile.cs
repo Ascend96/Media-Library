@@ -28,8 +28,9 @@ namespace MediaLibrary
 
                     int idx = line.IndexOf('"');
                     if(idx == -1){
-
+                        // splits file by comma and stores it into array
                         string[] movieDetails = line.Split(',');
+                        // stores each property of movie to correct array index
                         movie.mediaId = UInt64.Parse(movieDetails[0]);
                         movie.title = movieDetails[1];
                         movie.genres = movieDetails[2].Split('|').ToList();
@@ -37,6 +38,7 @@ namespace MediaLibrary
                         movie.runningTime = TimeSpan.Parse(movieDetails[4]); 
                     }
                     else{
+                        
                         movie.mediaId = UInt64.Parse(line.Substring(0, idx - 1));
 
                         line = line.Substring(idx + 1);
@@ -60,6 +62,7 @@ namespace MediaLibrary
 
                      //   movie.runningTime = new TimeSpan(2, 22, 22);
                     }
+                    // adds movie from file into list
                     Movies.Add(movie);
 
                 }
@@ -74,8 +77,9 @@ namespace MediaLibrary
 
         public void AddMovie(Movie movie){
             try{
+                // creates id of movie based on highest id stores and adds 1
                 movie.mediaId = Movies.Max(m => m.mediaId) + 1;
-
+                // appends movie properties into file
                 StreamWriter sw = new StreamWriter(filePath, true);
                 sw.WriteLine($"{movie.mediaId}, {movie.title},{string.Join('|', movie.genres)}, {movie.director}, {movie.runningTime}");
                 sw.Close();
